@@ -1,0 +1,35 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Edit Slot{% endblock %}
+{% block dashboard_content %}
+<div class="card">
+  <div class="card-header bg-primary text-white">Edit Availability Slot</div>
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label>Category</label>
+        <select name="category" class="form-select">
+          <option value="">Select Category</option>
+          {% for cat in categories %}
+            <option value="{{ cat.id }}" {% if slot.category and slot.category.id == cat.id %}selected{% endif %}>{{ cat.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label>Date</label>
+        <input type="date" name="date" class="form-control" value="{{ slot.date }}" required>
+      </div>
+      <div class="mb-3">
+        <label>Start Time</label>
+        <input type="time" name="start_time" class="form-control" value="{{ slot.start_time }}" required>
+      </div>
+      <div class="mb-3">
+        <label>End Time</label>
+        <input type="time" name="end_time" class="form-control" value="{{ slot.end_time }}" required>
+      </div>
+      <button class="btn btn-success">Save Changes</button>
+      <a href="/doctor/dashboard/" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

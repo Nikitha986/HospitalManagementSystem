@@ -1,0 +1,28 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Doctor Slots{% endblock %}
+{% block dashboard_content %}
+<div class="card mb-4">
+  <div class="card-header bg-primary text-white">Available Slots for Dr. {{ doctor.username }}</div>
+  <div class="card-body">
+    {% if slots %}
+      <div class="list-group">
+        {% for slot in slots %}
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+              {% if slot.category %}<span class="badge bg-info me-2">{{ slot.category.name }}</span>{% endif %}
+              <strong>{{ slot.date }}</strong> | {{ slot.start_time }} – {{ slot.end_time }}
+            </span>
+            {% if not slot.is_booked %}
+              <a href="/patient/book/{{ slot.id }}/" class="btn btn-success btn-sm">Book</a>
+            {% else %}
+              <span class="badge bg-danger">Booked</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-muted mb-0">No slots available.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

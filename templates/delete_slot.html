@@ -1,0 +1,20 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Delete Slot{% endblock %}
+{% block dashboard_content %}
+<div class="card">
+  <div class="card-header bg-danger text-white">Delete Slot</div>
+  <div class="card-body">
+    <p>Are you sure you want to delete this slot?</p>
+    <ul>
+      <li><strong>Date:</strong> {{ slot.date }}</li>
+      <li><strong>Start Time:</strong> {{ slot.start_time }}</li>
+      <li><strong>End Time:</strong> {{ slot.end_time }}</li>
+    </ul>
+    <form method="post">
+      {% csrf_token %}
+      <button class="btn btn-danger">Delete</button>
+      <a href="/doctor/dashboard/" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

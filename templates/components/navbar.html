@@ -1,0 +1,23 @@
+<nav class="navbar navbar-light bg-light px-4">
+    <span class="navbar-text">
+        Welcome, <strong>{{ user.username }}</strong>
+    </span>
+
+    <div class="d-flex align-items-center">
+        <button onclick="toggleTheme()" class="btn btn-sm btn-outline-secondary me-3">
+            🌗 Theme
+        </button>
+
+        <div class="dropdown">
+            <button class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                Profile
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li class="dropdown-item">Role: {{ user.role }}</li>
+                <li class="dropdown-item">Email: {{ user.email }}</li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="/logout/" class="dropdown-item text-danger">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

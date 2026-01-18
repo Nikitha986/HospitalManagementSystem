@@ -1,0 +1,21 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Doctors{% endblock %}
+{% block dashboard_content %}
+<div class="card mb-4">
+  <div class="card-header bg-primary text-white">Doctors</div>
+  <div class="card-body">
+    <div class="list-group">
+      {% for doctor in doctors %}
+        <a href="/patient/doctor/{{ doctor.id }}/" class="list-group-item list-group-item-action">
+          Dr. {{ doctor.username }} ({{ doctor.email }})
+          {% with slot=doctor.availability_set.first %}
+            {% if slot and slot.category %}
+              <span class="badge bg-info ms-2">{{ slot.category.name }}</span>
+            {% endif %}
+          {% endwith %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

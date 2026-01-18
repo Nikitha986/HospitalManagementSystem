@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# Django
+db.sqlite3
+*.log
+staticfiles/
+
+# Environment / secrets
+.env
+client_secret.json
+credentials.json
+GOOGLE_CALENDAR_*.json
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/

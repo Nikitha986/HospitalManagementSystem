@@ -1,0 +1,24 @@
+:root {
+    --bg: #f4f6f9;
+    --text: #222;
+    --sidebar: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg: #121212;
+    --text: #eee;
+    --sidebar: #1e1e1e;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    background: var(--sidebar);
+    border-right: 1px solid #ddd;
+    padding: 15px;
+}

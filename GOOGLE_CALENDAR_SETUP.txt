@@ -1,0 +1,14 @@
+# Google Calendar Integration Setup
+
+1. Go to https://console.cloud.google.com/ and create a new project (or use an existing one).
+2. Enable the Google Calendar API for your project.
+3. Go to 'APIs & Services' > 'Credentials'.
+4. Click 'Create Credentials' > 'OAuth client ID'. Choose 'Desktop app' or 'Web application'.
+5. Download the client_secret.json file and place it in your hospital_system/ directory.
+6. Install dependencies:
+   pip install -r requirements.txt
+7. On first run, the app will prompt for Google authentication and store a token.json file for future use.
+
+By default, this setup uses a single Google account (service or admin) for all bookings. If you want per-doctor Google accounts, each doctor must authenticate and store their own token.json.
+
+For most clinics, a single admin/service account is easiest. If you want per-doctor accounts, reply and I will adjust the code and instructions.
