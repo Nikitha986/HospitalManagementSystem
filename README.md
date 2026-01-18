@@ -63,7 +63,7 @@ The system also includes an **Admin role** powered by Django’s built-in admin 
 - Acts as a system-level supervisor (not involved in booking flow)
 
 ### Admin Access
-- Admin panel URL:
+- Admin panel URL: http://127.0.0.1:8000/admin/
 
 
 ## 🔐 Authentication & Authorization
