@@ -1,34 +1,108 @@
-# Hospital Management System
+# 🏥 Mini Hospital Management System (HMS)
 
-A web-based Hospital Management System built using Django that allows patients to book appointments with doctors and enables doctors to manage their availability. The system supports role-based access and integrates Google Calendar for appointment tracking.
+A role-based **Hospital Management System** built using **Django** that enables doctors to manage availability and patients to book appointments, with **Google Calendar integration** and a **serverless email notification service**.
 
 ---
 
-## Features
+## 🚀 Project Overview
 
-- Patient and Doctor authentication
-- Doctor availability management
-- Appointment booking system
-- Patient dashboard
+This project demonstrates:
+- Role-based authentication (Doctor / Patient)
+- Appointment booking with slot locking
+- Google Calendar API integration
+- Serverless email notifications using AWS Lambda (local demo)
+
+---
+
+## 👥 User Roles
+
+### 👨‍⚕️ Doctor
+- Sign up & login
 - Doctor dashboard
-- Google Calendar integration (appointments sync)
-- Secure handling of credentials
+- Create and manage availability slots
+- View only their own bookings
+- Google Calendar event creation on booking
+
+### 🧑‍💼 Patient
+- Sign up & login
+- Patient dashboard
+- View doctors and available slots
+- Book appointments
+- Prevents double booking
+- Google Calendar event creation on booking
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
-- Backend: Django (Python)
-- Frontend: HTML, CSS, JavaScript
-- Database: SQLite (development)
-- Version Control: Git & GitHub
-- API Integration: Google Calendar API
+### Backend
+- Django 4.2
+- PostgreSQL
+- Django ORM
+- Session-based authentication
+
+### Integrations
+- Google Calendar API (OAuth2)
+- Serverless email service (AWS Lambda – local using serverless-offline)
+
 
 ---
 
-## Project Setup
+## 🔐 Authentication & Authorization
 
-### 1. Clone the repository
+- Secure password hashing (Django default)
+- Role-based access control
+- Doctors and patients have isolated dashboards and permissions
+
+---
+
+## 📅 Booking Workflow
+
+1. Patient selects:
+   - Doctor
+   - Date
+   - Available time slot
+2. System verifies slot availability
+3. Booking is created atomically
+4. Slot is locked (cannot be double-booked)
+5. Google Calendar event created for:
+   - Doctor
+   - Patient
+6. Confirmation email sent via serverless email service
+
+---
+
+## 📆 Google Calendar Integration
+
+- OAuth2 authentication
+- One Google account per user
+- Event includes:
+  - Title
+  - Start & end time
+  - Doctor & patient details
+
+---
+
+## 📧 Serverless Email Service
+
+### Supported Email Types
+- SIGNUP_WELCOME
+- BOOKING_CONFIRMATION
+
+### Implementation
+- AWS Lambda (Python)
+- Serverless Framework
+- serverless-offline for local testing
+- SMTP-based email delivery
+
+---
+
+## 🧪 Local Setup Instructions
+
+### 1️⃣ Clone Repository
 ```bash
 git clone https://github.com/Nikitha986/HospitalManagementSystem.git
 cd HospitalManagementSystem
+
+
+
