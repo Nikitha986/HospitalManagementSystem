@@ -47,6 +47,24 @@ This project demonstrates:
 
 
 ---
+## 🛡 Admin (System Administrator)
+
+The system also includes an **Admin role** powered by Django’s built-in admin panel.
+
+### Admin Capabilities
+- Secure admin login via Django Admin
+- View and manage:
+  - Doctors
+  - Patients
+  - Availability slots
+  - Bookings
+  - Google OAuth tokens
+- Perform CRUD operations for troubleshooting and monitoring
+- Acts as a system-level supervisor (not involved in booking flow)
+
+### Admin Access
+- Admin panel URL:
+
 
 ## 🔐 Authentication & Authorization
 
